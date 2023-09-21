@@ -28,7 +28,7 @@ Response: User + access_token
 Company list: GET - /api/companies
 Authorization: Bearer Token
 
-Compan list by IDs: POST - /api/company-list
+Company list by IDs: POST - /api/company-list
 Authorization: Bearer Token
 Request parameters like: (Postman: Body -> form-data)
 ids[] = 1
