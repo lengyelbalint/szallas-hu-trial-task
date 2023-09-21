@@ -7,8 +7,8 @@ Telepítés:
 6. php artisan passport:install
 
 
-companyFoundationDate letiltása triggerrel - automatikusan létrejön migrate-el - (2023_09_18_145523_create_company_foundation_date_disable_trigger)
-Activity lekérdezés prodecúdával - automatikusan létrejön migrate-el - (2023_09_19_074046_create_company_activity_procedure). Végeredménye
+companyFoundationDate letiltása triggerrel - automatikusan létrejön migrate-el - (2023_09_22_145523_create_company_foundation_date_disable_trigger)
+Activity lekérdezés prodecúdával - automatikusan létrejön migrate-el - (2023_09_22_074046_create_company_activity_procedure). Végeredménye
 2001.01.01-től lévő lekérdezés
 
 API Teszthez:
