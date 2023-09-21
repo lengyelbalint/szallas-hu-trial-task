@@ -34,4 +34,23 @@ class CompanyController extends Controller
         }
         echo "</table>";
     }
+
+    public function companyFoundationsByDate()
+    {
+        $data = DB::select("select selected_date, GROUP_CONCAT(companyName) companies from 
+        (select adddate('2001-01-01',t4*10000 + t3*1000 + t2*100 + t1*10 + t0) selected_date from
+         (select 0 t0 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t0,
+         (select 0 t1 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t1,
+         (select 0 t2 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t2,
+         (select 0 t3 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t3,
+         (select 0 t4 union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t4) v
+        left join companies c ON selected_date = c.companyFoundationDate
+        where selected_date between '2001-01-01' and NOW()
+        GROUP BY selected_date
+        order by selected_date;");
+
+      //  dd($data);
+
+        return view('companies.foundations', compact('data'));
+    }
 }
