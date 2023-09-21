@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -21,7 +20,7 @@ class AuthController extends Controller
         return response(['user' => $user], 201);
     }
 
-    public function login(LoginRequest $request)
+    public function login(Request $request)
     {
         if (!auth()->attempt($request->validated())) {
             return response(['message' => 'This User does not exist, check your details'], 400);
