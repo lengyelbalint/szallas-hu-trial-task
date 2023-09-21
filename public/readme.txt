@@ -1,7 +1,11 @@
 Telepítés:
 1. composer update
-2. php artisan passport:install
-3. php artisan migrate:fresh --seed
+2. copy .env.example to .env
+3. php artisan key:generate
+4. create DB (szallastrial)
+5. php artisan migrate:fresh --seed
+6. php artisan passport:install
+
 
 companyFoundationDate letiltása triggerrel - automatikusan létrejön migrate-el - (2023_09_18_145523_create_company_foundation_date_disable_trigger)
 Activity lekérdezés prodecúdával - automatikusan létrejön migrate-el - (2023_09_19_074046_create_company_activity_procedure). Végeredménye
