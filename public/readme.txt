@@ -35,8 +35,6 @@ ids[] = 1
 ids[] = 2
 ids[] = 43
 
-
-
 Get Compay By Id: GET - /api/companies/1
 Authorization: Bearer Token
 
