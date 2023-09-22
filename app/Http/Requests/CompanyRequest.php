@@ -2,14 +2,22 @@
 
 namespace App\Http\Requests;
 
+use Doctrine\Inflector\Rules\Ruleset;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\Rules\Password;
 
 class CompanyRequest extends FormRequest
 {
     public function rules()
     {
+        if (request()->isMethod('post')) {
+            $passwordRule = 'required';
+        } elseif (request()->isMethod('put')) {
+            $passwordRule = 'sometimes';
+        }
+
         return [
             'companyName' => 'required',
             'companyRegistrationNumber' => 'required',
@@ -25,7 +33,7 @@ class CompanyRequest extends FormRequest
             'activity' => 'required',
             'active' => 'required|boolean',
             'email' => 'required|email|max:50',
-            'password' => 'required|min:6',
+            'password' => [$passwordRule],
         ];
     }
 
@@ -49,6 +57,10 @@ class CompanyRequest extends FormRequest
         $this->merge([
             'active' => $this->toBoolean($this->active),
         ]);
+
+        if($this->password == null) {
+            $this->request->remove('password');
+        }
     }
 
     private function toBoolean($booleable)

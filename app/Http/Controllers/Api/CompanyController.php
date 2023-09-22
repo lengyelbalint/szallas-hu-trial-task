@@ -35,7 +35,7 @@ class CompanyController extends Controller
 
     public function update(CompanyRequest $request, Company $company)
     {
-        $company->update($request->all());
+        $company->update($request->validated());
 
         return response(['company' => $company, 'message' => 'Update successfully'], 200);
     }

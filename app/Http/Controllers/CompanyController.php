@@ -16,6 +16,8 @@ class CompanyController extends Controller
 
         $data['companiesActicity'] = collect($queryResult);
 
+        return view('companies.activities', compact('data'));
+
         echo "<table>";
         foreach ($data['companiesActicity'] as $key => $item) {
             if ($key == 0) {
@@ -48,8 +50,6 @@ class CompanyController extends Controller
         where selected_date between '2001-01-01' and NOW()
         GROUP BY selected_date
         order by selected_date;");
-
-      //  dd($data);
 
         return view('companies.foundations', compact('data'));
     }
