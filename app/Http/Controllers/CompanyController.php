@@ -17,24 +17,6 @@ class CompanyController extends Controller
         $data['companiesActicity'] = collect($queryResult);
 
         return view('companies.activities', compact('data'));
-
-        echo "<table>";
-        foreach ($data['companiesActicity'] as $key => $item) {
-            if ($key == 0) {
-                echo "<tr>";
-                $value = json_decode(json_encode($item), true);
-                foreach ($value as $value_key => $value_value) {
-                    echo "<td>" . $value_key . "</td>";
-                }
-                echo "</tr>";
-            }
-            echo "<tr>";
-            foreach ($item as $i) {
-                echo "<td>" . $i . "</td>";
-            }
-            echo "</tr>";
-        }
-        echo "</table>";
     }
 
     public function companyFoundationsByDate()
